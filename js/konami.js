@@ -18,6 +18,7 @@ function onKonamiCode(cb) {
         console.log("Konami code detected!");
             
         PlayState.spawnCoin(PlayState.game.cache.getJSON(`level:${PlayState.level}`).konamiCoin);
+        PlayState.sfx.coin.play();
         PlayState.konamiCodeUsed = true;
     }
   })

@@ -2,11 +2,16 @@ PlayState.onHeroVsSpider = function(hero, spider) {
     this.sfx.stomp.play();
 
     if (spider.body.touching.up) {
+        var spiderPosition = spider.position;
+
         hero.bounce();
         spider.die();
 
         this.enemyKillCount++;
-        this.spawnCoin(this.game.cache.getJSON(`level:${PlayState.level}`).enemyKillCoins[this.enemyKillCount-1]);
+
+        var newCoin = { "x": spiderPosition.x+30, "y": spiderPosition.y };
+        this.spawnCoin(newCoin);
+        this.sfx.coin.play();
         
     } else if (!this.hero.isDying) {
         this.hero.isDying = true;
