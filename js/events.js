@@ -4,6 +4,10 @@ PlayState.onHeroVsSpider = function(hero, spider) {
     if (spider.body.touching.up) {
         hero.bounce();
         spider.die();
+
+        this.enemyKillCount++;
+        this.spawnCoin(this.game.cache.getJSON(`level:${PlayState.level}`).enemyKillCoins[this.enemyKillCount-1]);
+        
     } else if (!this.hero.isDying) {
         this.hero.isDying = true;
         this.hero.body.enable = false;
@@ -41,6 +45,9 @@ PlayState.onHeroVsKey = function(hero, key) {
     this.sfx.key.play();
     this.keyIcon.frame = 1;
     key.kill();
+
+    var keyCoins = this.game.cache.getJSON(`level:${PlayState.level}`).keyCoins;
+    keyCoins.forEach(this.spawnCoin, this);
 };
 
 PlayState.onHeroInDoor = function() {

@@ -16,7 +16,6 @@ window.onload = function() {
 
 PlayState.preload = function() {
     this.game.load.json('level:0', 'data/level00.json');
-    this.game.load.json('level:1', 'data/level01.json');
 
     this.game.load.image('background', 'images/background.png');
     this.game.load.image('ground', 'images/ground.png');
@@ -35,7 +34,6 @@ PlayState.preload = function() {
     this.game.load.audio('sfx:key', 'audio/key.wav');
     this.game.load.audio('sfx:door', 'audio/door.wav');
     this.game.load.audio('sfx:stomp', 'audio/stomp.wav');
-    // this.game.load.audio('music', 'audio/stomp.wav');
     this.game.load.audio('music', 'audio/bgm.mp3');
 
     this.game.load.spritesheet('coin', 'images/coin_animated.png', 22, 22);
@@ -68,6 +66,9 @@ PlayState.init = function(args) {
     this.coinCount = 0;
     this.heroHasKey = false;
     this.heroMovingToDoor = false;
+
+    this.konamiCodeUsed = false;
+    this.enemyKillCount = 0;
 
     // this.level = 1;
     this.level = (args.level || 0) % LEVEL_COUNT;
