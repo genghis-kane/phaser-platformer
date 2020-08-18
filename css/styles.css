@@ -1,0 +1,29 @@
+.hint-container {
+    display: none;
+}
+
+.success-message-container {
+    width: 960px;
+    margin: auto;
+    margin-top: 10px;
+    padding: 20px 0;
+    border: 2px solid #ec1c23;
+}
+
+.success-message {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-family: sans-serif;
+    font-weight: bolder;
+    color: #ec1c23;
+    margin: 5px 0;
+}
+
+.success-message-mini {
+    margin: 0;
+    text-align: center;
+    font-size: 12px;
+    font-family: sans-serif;
+    color: #ec1c23;
+}

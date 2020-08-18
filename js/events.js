@@ -57,6 +57,8 @@ PlayState.onHeroVsKey = function(hero, key) {
 
 PlayState.onHeroInDoor = function() {
     this.hero.animations.play('blink').onComplete.addOnce(function() {
+        document.getElementById("end-game").innerHTML = " <div class='success-message-container'><p class='success-message'>Happy 10 years! :)</p><p class='success-message-mini'>100 years Jess and Jake, 6 seasons and a movie</p></div>";
+        
         var tracker = 0;
         var limit = 20;
         var intervalId = window.setInterval(function() {
