@@ -1,6 +1,7 @@
 var PlayState = {};
 
-const LEVEL_COUNT = 2;
+const LEVEL_COUNT = 1;
+const COIN_COUNT_WIN = 10;
 
 window.onload = function() {
     // let game = new Phaser.Game(docoment.window.width, do, Phaser.AUTO, 'game');
@@ -28,6 +29,7 @@ PlayState.preload = function() {
     this.game.load.image('icon:coin', 'images/coin_icon.png');
     this.game.load.image('font:numbers', 'images/numbers.png');
     this.game.load.image('key', 'images/key.png');
+    this.game.load.image('heart', 'images/heart.png');
 
     this.game.load.audio('sfx:jump', 'audio/jump.wav');
     this.game.load.audio('sfx:coin', 'audio/coin.wav');
@@ -64,6 +66,7 @@ PlayState.init = function(args) {
     }, this);
 
     this.coinCount = 0;
+    this.coinCountWin = COIN_COUNT_WIN;
     this.heroHasKey = false;
     this.heroMovingToDoor = false;
 

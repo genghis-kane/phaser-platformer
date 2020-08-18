@@ -30,7 +30,7 @@ PlayState.onHeroVsCoin = function(hero, coin) {
 };
 
 PlayState.onHeroVsDoor = function(hero, door) {
-    if (this.heroHasKey) {
+    if (this.coinCount == this.coinCountWin) {
         if (!this.heroMovingToDoor) {
             this.heroMovingToDoor = true;
             this.game.input.enabled = false;
@@ -52,10 +52,16 @@ PlayState.onHeroVsKey = function(hero, key) {
 
 PlayState.onHeroInDoor = function() {
     this.hero.animations.play('blink').onComplete.addOnce(function() {
-        PlayState.fadeCamera(false, function() {
-            PlayState.game.state.restart(true, false, {
-                level: PlayState.level + 1,
-            });
-        });
+        var tracker = 0;
+        var limit = 20;
+        var intervalId = window.setInterval(function() {
+            var xAxis = Math.floor(Math.random() * Math.floor(940))
+            var newHeart = { "x": xAxis, "y": 0 };
+            PlayState.spawnHeart(newHeart);
+            tracker++;
+            if (tracker > limit) {
+                clearInterval(intervalId);
+            };
+          }, 300);
     }, this);
 };

@@ -6,6 +6,9 @@ PlayState.handleCollisions = function() {
     this.game.physics.arcade.overlap(this.hero, this.door, this.onHeroVsDoor, null, this);
     this.game.physics.arcade.overlap(this.hero, this.key, this.onHeroVsKey, null, this);
     this.game.physics.arcade.collide(this.hero, this.spiders, this.onHeroVsSpider, null, this);
+    this.game.physics.arcade.collide(this.hearts, this.platforms);
+    this.game.physics.arcade.collide(this.hearts, this.hearts);
+    this.game.physics.arcade.collide(this.hearts, this.hero);
 };
 
 PlayState.handleInput = function() {

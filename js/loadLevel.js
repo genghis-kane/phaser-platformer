@@ -25,6 +25,7 @@ PlayState.addGroups = function() {
     this.spiders = this.game.add.group();
     this.enemyWalls = this.game.add.group();
     this.deco = this.game.add.group();
+    this.hearts = this.game.add.group();
 };
 
 PlayState.spawnDeco = function(deco) {
@@ -102,4 +103,13 @@ PlayState.spawnCoin = function(coin) {
 
     this.game.physics.enable(sprite);
     sprite.body.allowGravity = false;
+};
+
+PlayState.spawnHeart = function(heart) {
+    var sprite = this.hearts.create(heart.x, heart.y, 'heart');
+    sprite.anchor.set(0.5, 0.5);
+   
+    this.game.physics.enable(sprite);
+    sprite.body.bounce.set(0.4);
+    sprite.body.allowGravity = true;
 };
